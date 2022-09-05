@@ -26,6 +26,7 @@ print(hash_string_in)
 def output_str(input_key, has_pos_match, rand_word_max_len):
     count = 0
     output_hash_sub = ""
+    str_rand = ""
     while output_hash_sub != input_key:
         search_word = ""
         str_rand_len = random.randint(1, rand_word_max_len)
@@ -39,31 +40,25 @@ def output_str(input_key, has_pos_match, rand_word_max_len):
         count += 1
     # print(output_hash_sub)
     # print(str_rand)
-    return output_hash_sub, str_rand, count
+    return output_hash_sub, str_rand, count, hash_string
 
-output_hash_sub = (output_str(input_key,1 ,10)[0])
-str_rand = (output_str(input_key,1,10)[1])
-count = (output_str(input_key,1,10)[2])
+output_string = output_str(input_key,1 ,10)
 
+output_hash_sub = output_string[0]
+str_rand = output_string[1]
+count = output_string[2]
+out_hash = output_string[3]
 
+print(f"The input sub key is: {input_key}")
+print(f"The output sub key is: {output_hash_sub}")
 
-print(output_str((input_hash_parts(str_in, 1)), 1, 10))
-
-
-print(f"The output key is: {output_hash_sub}")
-print(f"\nIterations tried: {count:,}")
-print(f"The input word is: {str_in}")
-print(f"The output word is: {str_rand}\n")
+print(f"The input string is: {str_in}")
+print(f"The output string is: {str_rand}")
 print(f"The input hash is: {hash_string_in}")
-out_hash = sha256(str_rand.encode()).hexdigest()
 print(f"The output hash is: {out_hash}\n")
+print(f"Iterations tried: {count:,}")
 end_time = time.perf_counter()
 
 print(f"The program finished in {end_time - beg_time:0.4f} seconds")
 print(f"Or {(end_time - beg_time)/60:0.4f} minutes")
 print(f"Or {(end_time - beg_time)/3600:0.4f} hours")
-
-# The word is yaokfgywybqxixipff
-# The input hash is: 6c3f2e9dc08634163349ca331fa522e5cddc48bdd4c73bb94e27416fe01740bb
-# The output hash is 6c3f14071dcee443142df28a853a46e3cba50682f845a06d0e65185a4aaa40bb
-
