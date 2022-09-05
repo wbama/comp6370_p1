@@ -4,7 +4,6 @@ from hashlib import sha256
 import time
 
 beg_time = time.perf_counter()
-print(time.perf_counter())
 
 str_in = "preimage-wzd0029@auburn.edu"
 
@@ -16,12 +15,10 @@ def input_hash_parts(str_in, has_pos_match):
 
     return input_hash_sub, hash_string_in
 
-input_key = (input_hash_parts(str_in, 1))[0]
-hash_string_in = (input_hash_parts(str_in, 1))[1]
+input_hash_sub = (input_hash_parts(str_in, 3))
 
-print(str_in)
-print(input_key)
-print(hash_string_in)
+input_key = input_hash_sub[0]
+hash_string_in = input_hash_sub[1]
 
 def output_str(input_key, has_pos_match, rand_word_max_len):
     count = 0
@@ -42,7 +39,7 @@ def output_str(input_key, has_pos_match, rand_word_max_len):
     # print(str_rand)
     return output_hash_sub, str_rand, count, hash_string
 
-output_string = output_str(input_key,1 ,10)
+output_string = output_str(input_key,3 ,10)
 
 output_hash_sub = output_string[0]
 str_rand = output_string[1]
